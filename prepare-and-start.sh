@@ -21,5 +21,4 @@ if [ ! -f "$PWD/prepare.done" ]; then
 fi
 
 echo "Starting Konga in $PWD"
-#node --harmony app.js
-npm run production
+node --harmony app.js
