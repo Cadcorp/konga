@@ -3,6 +3,11 @@ apt-get update
 apt-get install -y -qq postgresql-client
 
 echo "Checking database environment variables:"
+[[ -z "$DB_ADAPTER" ]] && { echo "DB_ADAPTER is empty"; exit 1; }
+[[ -z "$DB_DATABASE" ]] && { echo "DB_DATABASE is empty"; exit 1; }
+[[ -z "$DB_HOST" ]] && { echo "DB_HOST is empty"; exit 1; }
+[[ -z "$DB_PORT" ]] && { echo "DB_PORT is empty"; exit 1; }
+[[ -z "$DB_USER" ]] && { echo "DB_USER is empty"; exit 1; }
 echo "  DB_ADAPTER=$DB_ADAPTER"
 echo "  DB_DATABASE=$DB_DATABASE"
 echo "  DB_HOST=$DB_HOST"
