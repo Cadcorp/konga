@@ -22,6 +22,7 @@ if [ ! -f "$PWD/install.done" ]; then
     fi
 fi
 
+if [ ! -f "$PWD/prepare.done" ]; then
     echo "Starting Konga prepare in $PWD"
     node ./bin/konga.js prepare --adapter postgres
     if [ $? -eq 0 ]; then
