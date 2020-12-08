@@ -20,17 +20,10 @@ psql "host=$DB_HOST port=$DB_PORT dbname=$DB_DATABASE user=$DB_USER password=$DB
 node --version
 npm --version
 
-if [ ! -f "$PWD/install.done" ]; then
-    npm install -g bower && npm --unsafe-perm --production install
-    if [ $? -eq 0 ]; then
-        touch "$PWD/install.done"
-    fi
-fi
-
-if [ ! -f "$PWD/prepare.done" ]; then
+if [[ ! -f "$PWD/prepare.done" ]]; then
     echo "Starting Konga prepare in $PWD"
     node ./bin/konga.js prepare --adapter postgres
-    if [ $? -eq 0 ]; then
+    if [[ $? -eq 0 ]]; then
         touch "$PWD/prepare.done"
     fi
 fi
