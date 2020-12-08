@@ -1,7 +1,5 @@
 #!/bin/bash
-apt-get update
-apt-get install -y -qq postgresql-client
-
+# Startup script for Konga by Cadcorp
 echo "Checking database environment variables:"
 [[ -z "$DB_ADAPTER" ]] && { echo "DB_ADAPTER is empty"; exit 1; }
 [[ -z "$DB_DATABASE" ]] && { echo "DB_DATABASE is empty"; exit 1; }
@@ -13,9 +11,13 @@ echo "  DB_DATABASE=$DB_DATABASE"
 echo "  DB_HOST=$DB_HOST"
 echo "  DB_PORT=$DB_PORT"
 echo "  DB_USER=$DB_USER"
-echo
-echo "Checking database connection:"
-psql "host=$DB_HOST port=$DB_PORT dbname=$DB_DATABASE user=$DB_USER password=$DB_PASSWORD sslmode=require" -c "SELECT version();"
+
+#if [[ "$NODE_ENV" == "development" ]]; then
+#    apt-get update
+#    apt-get install -y -qq postgresql-client
+#    echo "Checking database connection:"
+#    psql "host=$DB_HOST port=$DB_PORT dbname=$DB_DATABASE user=$DB_USER password=$DB_PASSWORD sslmode=require" -c "SELECT version();"
+#fi
 
 node --version
 npm --version
