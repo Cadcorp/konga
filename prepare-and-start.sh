@@ -31,4 +31,5 @@ if [[ ! -f "$PWD/prepare.done" ]]; then
 fi
 
 echo "Starting Konga in $PWD"
+echo "  NODE_ENV=$NODE_ENV"
 node --harmony app.js
