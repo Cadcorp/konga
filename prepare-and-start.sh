@@ -31,5 +31,8 @@ if [[ ! -f "$PWD/prepare.done" ]]; then
 fi
 
 echo "Starting Konga in $PWD"
+echo "  KONG_HOOK_TIMEOUT=$KONG_HOOK_TIMEOUT"
+echo "  KONGA_SEED_KONG_NODE_DATA_SOURCE_FILE=$KONGA_SEED_KONG_NODE_DATA_SOURCE_FILE"
+echo "  KONGA_SEED_USER_DATA_SOURCE_FILE=$KONGA_SEED_USER_DATA_SOURCE_FILE"
 echo "  NODE_ENV=$NODE_ENV"
-node --harmony app.js
+node --harmony app.js --prod
