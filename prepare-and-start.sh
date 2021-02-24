@@ -11,6 +11,7 @@ echo "  DB_DATABASE=$DB_DATABASE"
 echo "  DB_HOST=$DB_HOST"
 echo "  DB_PORT=$DB_PORT"
 echo "  DB_USER=$DB_USER"
+echo
 
 #if [[ "$NODE_ENV" == "development" ]]; then
 #    apt-get update
@@ -31,7 +32,7 @@ if [[ ! -f "$PWD/prepare.done" ]]; then
 fi
 
 echo "Starting Konga in $PWD"
-echo "  KONG_HOOK_TIMEOUT=$KONG_HOOK_TIMEOUT"
+echo "  KONGA_HOOK_TIMEOUT=$KONGA_HOOK_TIMEOUT"
 echo "  KONGA_SEED_KONG_NODE_DATA_SOURCE_FILE=$KONGA_SEED_KONG_NODE_DATA_SOURCE_FILE"
 echo "  KONGA_SEED_USER_DATA_SOURCE_FILE=$KONGA_SEED_USER_DATA_SOURCE_FILE"
 echo "  NODE_ENV=$NODE_ENV"
